@@ -10,7 +10,7 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 
 # The following folder will be included
-set(SOURCES src/main.cpp src/complexNumber.cpp src/utils.cpp)
+set(SOURCES src/main.cpp src/complexNumber.cpp include/utils.hpp)
 
 
 add_executable(lab2 ${SOURCES})

@@ -7,10 +7,11 @@
  * @brief A Complex number container with complex number arithematic
  * 
  */
+template <class T>
 class complexNum
 {
 private:
-    int m_real = 0, m_img = 0;  //members of the class
+    T m_real = 0, m_img = 0;  //members of the class
 
 public:
     /**
@@ -19,7 +20,7 @@ public:
      * @param real 
      * @param img 
      */
-    complexNum(int real, int img); 
+    complexNum(T real, T img); 
     
     /**
      * @brief Destroy the complex Num object
@@ -72,4 +73,9 @@ public:
      */
     std::string toString();
 };
+
+template class complexNum<int>; // forward declaring integer complex number 
+template class complexNum<float>; // forward declaring float complex number 
+template class complexNum<double>; // forward declaring double complex number 
+
 #endif

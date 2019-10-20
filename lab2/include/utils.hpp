@@ -1,3 +1,4 @@
+
 #ifndef UTILS_HPP
 #define UTILS_HPP
 
@@ -9,20 +10,47 @@
 #include "complexNumber.hpp"
 
 /**
- * @brief read a file of complex numbers specified by filepath and returns a vector of complex numbers
+ * @brief 
  * 
+ * @tparam T 
  * @param file_path 
- * @return std::vector<complexNum> 
+ * @return std::vector<complexNum<T>> 
  */
-std::vector<complexNum> readComplexNumberFromFile(std::string file_path);
+template <class T>
+std::vector<complexNum<T>> readComplexNumberFromFile(std::string file_path)
+{
+    std::ifstream fIn(file_path);
+    std::string line;
+    std::vector<complexNum<T>> complex_numbers;
+    while (std::getline(fIn, line))
+    {
+        
+        std::istringstream iss(line);
+        T a, b;
+        if (!(iss >> a >> b))
+        { 
+            continue;
+        }
+        std::cout << a << " " << b << std::endl;
+        complexNum<T> complex_num(a,b);
+        complex_numbers.push_back(complex_num);
+    } 
+
+    return complex_numbers;
+}
 
 /**
- * @brief writes the given complex number to specified file path 
+ * @brief 
  * 
- * @param sum 
+ * @tparam T 
+ * @param complex_num 
  * @param file_path 
  */
-void writeComplexNumberToFile(complexNum complex_num, std::string file_path);
+template <class T>
+void writeComplexNumberToFile(complexNum<T> complex_num, std::string file_path)
+{
+    std::ofstream fOut(file_path);
+    fOut << complex_num.toString();
+}
 
-
-#endif //closing header guard
+#endif 

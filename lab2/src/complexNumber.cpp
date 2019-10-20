@@ -1,24 +1,27 @@
 #include "complexNumber.hpp"
 #include <iostream>
 
-complexNum::complexNum(int re, int i)
+template <class T>
+complexNum<T>::complexNum(T re, T i)
 {
     m_real = re;
     m_img = i;  
 }
 
-complexNum::~complexNum()
+template <class T>
+complexNum<T>::~complexNum()
 {
 
 }
 
-void complexNum::printNum()
+template <class T>
+void complexNum<T>::printNum()
 {
     std::cout << this->toString() << std::endl;
 }
 
-
-complexNum complexNum::operator+(complexNum& rhs_complex_num)
+template <class T>
+complexNum<T> complexNum<T>::operator+(complexNum<T>& rhs_complex_num)
 {
     int re, img;
     re = m_real + rhs_complex_num.m_real;
@@ -27,14 +30,16 @@ complexNum complexNum::operator+(complexNum& rhs_complex_num)
     return complexNum(re,img);
 }
 
-complexNum& complexNum::operator+=(complexNum& rhs_complex_num)
+template <class T>
+complexNum<T>& complexNum<T>::operator+=(complexNum<T>& rhs_complex_num)
 {
     this->m_real += rhs_complex_num.m_real;
     this->m_img += rhs_complex_num.m_img;
     return *this;
 }
 
-complexNum complexNum::operator-(complexNum& rhs_complex_num)
+template <class T>
+complexNum<T> complexNum<T>::operator-(complexNum<T>& rhs_complex_num)
 {
     int re, img;
     re = m_real - rhs_complex_num.m_real;
@@ -43,14 +48,16 @@ complexNum complexNum::operator-(complexNum& rhs_complex_num)
     return complexNum(re,img);
 }
 
-complexNum& complexNum::operator-=(complexNum& rhs_complex_num)
+template <class T>
+complexNum<T>& complexNum<T>::operator-=(complexNum<T>& rhs_complex_num)
 {
     this->m_real -= rhs_complex_num.m_real;
     this->m_img -= rhs_complex_num.m_img;
     return *this;
 }
 
-std::string complexNum::toString()
+template <class T>
+std::string complexNum<T>::toString()
 {
     std::string complex_string = "";
     if(m_img >= 0)
@@ -63,3 +70,4 @@ std::string complexNum::toString()
     }
     return complex_string;
 }
+

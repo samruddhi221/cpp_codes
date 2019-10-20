@@ -33,9 +33,9 @@ const std::string OUTPUT_FILE = "../ComplexObj.txt";
 int main() 
 {
     
-    complexNum sum(0,0);
+    complexNum<int> sum(0,0);
 
-    std::vector<complexNum> complex_numbers = readComplexNumberFromFile(INPUT_FILE);
+    std::vector<complexNum<int>> complex_numbers = readComplexNumberFromFile<int>(INPUT_FILE);
 
     for(int i = 0; i < complex_numbers.size() ; i++)
     {
@@ -45,5 +45,5 @@ int main()
 
     sum.printNum();
 
-    writeComplexNumberToFile(sum, OUTPUT_FILE);
+    writeComplexNumberToFile<int>(sum, OUTPUT_FILE);
 }
