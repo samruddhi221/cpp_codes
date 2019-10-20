@@ -10,7 +10,7 @@
 #include "complexNumber.hpp"
 
 /**
- * @brief 
+ * @brief reads complex number from specified file path and returns a vector of complex objects 
  * 
  * @tparam T 
  * @param file_path 
@@ -40,7 +40,7 @@ std::vector<complexNum<T>> readComplexNumberFromFile(std::string file_path)
 }
 
 /**
- * @brief 
+ * @brief writes a complex number to a specified file path
  * 
  * @tparam T 
  * @param complex_num 

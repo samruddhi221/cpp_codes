@@ -20,6 +20,14 @@ public:
      * @param real 
      * @param img 
      */
+    complexNum(); 
+
+    /**
+     * @brief Construct a new complex Num object
+     * 
+     * @param real 
+     * @param img 
+     */
     complexNum(T real, T img); 
     
     /**

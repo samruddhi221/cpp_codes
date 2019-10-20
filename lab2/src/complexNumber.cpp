@@ -2,16 +2,19 @@
 #include <iostream>
 
 template <class T>
-complexNum<T>::complexNum(T re, T i)
+complexNum<T>::complexNum():m_real(static_cast<T>(0)),m_img(static_cast<T>(0)) // using copy constructor to initalize variables
 {
-    m_real = re;
-    m_img = i;  
+}
+
+
+template <class T>
+complexNum<T>::complexNum(T re, T i):m_real(re),m_img(i)
+{
 }
 
 template <class T>
 complexNum<T>::~complexNum()
 {
-
 }
 
 template <class T>
