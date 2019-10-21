@@ -16,7 +16,8 @@ set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 # The following folder will be included
 set(SOURCES src/main.cpp 
             src/complexDB.cpp 
-            src/complexNumber.cpp)
+            src/complexNumber.cpp
+            src/console.cpp)
 
 
 add_executable(lab3 ${SOURCES})

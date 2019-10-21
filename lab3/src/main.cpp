@@ -23,35 +23,16 @@ classes ComplexDB and Complex.
 #include <iostream>
 #include "complexNumber.hpp"
 #include "complexDB.hpp"
+#include "console.hpp"
 
 const std::string OUTPUT_FILE = "../lab3complex.txt";
 
 int main()
 {
-    complexNum<int> c1(2,3);
-    complexNum<int> c2(24,23);
-    complexNum<int> c3(12,-3);
-    complexNum<int> c4(11,-3);
-    complexNum<int> c5(10,-3);
-    complexNum<int> c6(9,-3);
-
-    ComplexDB complex_array;
-    complex_array.insert(c1);
-    complex_array.insert(c2);
-    complex_array.insert(c3);
-
-    std::cout << complex_array.toString() << std::endl;
     
-    complex_array.insert(c4);
-    complex_array.insert(c5);
-    complex_array.insert(c6);
+    ComplexDB complex_db;
+    Console console(&complex_db);
+    console.complex_db_oprations();
 
-    std::cout << complex_array.toString() << std::endl;
-    
-    complex_array.del(c2);
-
-    std::cout << complex_array.toString() << std::endl;
-
-    complex_array.save(OUTPUT_FILE);
     return 0;
 }
