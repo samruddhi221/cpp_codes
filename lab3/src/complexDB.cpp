@@ -78,6 +78,7 @@ void ComplexDB::del(complexNum<int> complex_number)
     }
 
     m_length--;
+    m_end_idx--;
 }
 
 std::string ComplexDB::toString()
@@ -95,4 +96,54 @@ void ComplexDB::save(std::string file_name)
 {
     std::ofstream fOut(file_name);
     fOut << this->toString();
+}
+
+void ComplexDB::swapComplexNum(complexNum<int> *complex_num1, complexNum<int> *complex_num2)
+{
+    complexNum<int> temp = *complex_num1;
+    *complex_num1 = *complex_num2;
+    *complex_num2 = temp;
+}
+
+void ComplexDB::swapNumbers(int *num1, int *num2)
+{
+    int temp = *num1;
+    *num1 = *num2;
+    *num2 = temp;
+}
+
+void ComplexDB::bubbleSort()
+{
+    int complex_abs[m_length];
+    for(int i = 0; i < m_length; i++)
+    {
+        complex_abs[i] = m_array[i].complex_num_absolute_val();
+        std::cout << complex_abs[i] << std::endl;
+    }
+    for(int i = 0; i < m_length-1 ; i++)
+    {
+        for(int j = 0; j < m_length-i-1; j++)
+        {
+            if(complex_abs[j] > complex_abs[j+1])
+            {
+                std::cout << "before : " << m_array[j].toString() << "," << m_array[j+1].toString() << std::endl;
+                swapNumbers(&complex_abs[j], &complex_abs[j+1]);
+                swapComplexNum(&m_array[j],&m_array[j+1]);
+                std::cout << "after : " << m_array[j].toString() << "," << m_array[j+1].toString() << std::endl;
+            }
+        }
+    }
+    std::cout << this->toString() << std::endl;
+
+}
+
+void ComplexDB::insertionSort()
+{
+
+
+}
+
+void ComplexDB::selectionSort()
+{
+
 }

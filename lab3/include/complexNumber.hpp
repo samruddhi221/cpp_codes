@@ -48,6 +48,9 @@ public:
      * @param rhs_complex_num 
      * @return complexNum 
      */
+
+    int complex_num_absolute_val();
+
     complexNum operator+(complexNum& rhs_complex_num);
 
     /**
@@ -89,6 +92,7 @@ public:
      * @return std::string 
      */
     std::string toString();
+
 };
 
 template class complexNum<int>; // forward declaring integer complex number 

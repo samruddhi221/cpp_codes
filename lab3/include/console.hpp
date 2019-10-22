@@ -19,8 +19,12 @@ private:
             DELETE=2,
             DISPLAY=3,
             SAVE=4,
+            SORT_DB_BUBBLE_SORT=5,
+            SORT_DB_INSERTION_SORT=6,
+            SORT_DB_SELECTION_SORT=7,
             EXIT=9
         };
+
 
 public:
     /**

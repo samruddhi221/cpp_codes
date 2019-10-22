@@ -16,6 +16,9 @@ void Console::printMenu()
     std::cout << "2: Delete a complex Number" << std::endl;
     std::cout << "3: Display complex number database" << std::endl;
     std::cout << "4: Save database to a file" << std::endl;
+    std::cout << "5: sort the database using bubble sort" << std::endl;
+    std::cout << "6: sort the database using insertion sort" << std::endl;
+    std::cout << "7: sort the database using selection sort" << std::endl;
     std::cout << "9: Exit" << std::endl;
 }
 
@@ -78,6 +81,20 @@ void Console::complex_db_oprations()
         else if (option == OPTIONS::SAVE)
         {
             m_complex_db->save("../lab3complex.txt");
+        }
+
+        else if (option == OPTIONS::SORT_DB_BUBBLE_SORT)
+        {
+            m_complex_db->bubbleSort();
+        }
+
+        else if (option == OPTIONS::SORT_DB_INSERTION_SORT)
+        {
+
+        }
+        else if (option == OPTIONS::SORT_DB_SELECTION_SORT)
+        {
+
         }
 
         else if (option == OPTIONS::EXIT)

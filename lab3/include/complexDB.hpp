@@ -66,6 +66,39 @@ class ComplexDB
          */
         void save(std::string file_name);
 
+        /**
+         * @brief sort the database using bubble sort
+         * 
+         */
+        void bubbleSort();
+
+        /**
+         * @brief sort the database using bubble sort
+         * 
+         */
+        void insertionSort();
+
+        /**
+         * @brief sort the database using bubble sort
+         * 
+         */
+        void selectionSort();
+
+        /**
+         * @brief swap two complex numbers numbers
+         * 
+         * @param complex_num1 
+         * @param complex_num2 
+         */
+        void swapComplexNum(complexNum<int> *complex_num1, complexNum<int> *complex_num2);
+
+        /**
+         * @brief swap any two numbers
+         * 
+         * @param num1 
+         * @param num2 
+         */
+        void swapNumbers(int *num1, int *num2);
 };
 
 #endif

@@ -1,5 +1,6 @@
 #include "complexNumber.hpp"
 #include <iostream>
+#include <math.h>
 
 template <class T>
 complexNum<T>::complexNum():m_real(static_cast<T>(0)),m_img(static_cast<T>(0)) // using copy constructor to initalize variables
@@ -21,6 +22,13 @@ template <class T>
 void complexNum<T>::printNum()
 {
     std::cout << this->toString() << std::endl;
+}
+
+template <class T>
+int complexNum<T>::complex_num_absolute_val()
+{
+    int absolute_val = sqrt(m_real*m_real + m_img*m_img);
+    return absolute_val;
 }
 
 template <class T>
