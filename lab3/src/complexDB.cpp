@@ -114,20 +114,13 @@ void ComplexDB::swapNumbers(int *num1, int *num2)
 
 void ComplexDB::bubbleSort()
 {
-    int complex_abs[m_length];
-    for(int i = 0; i < m_length; i++)
-    {
-        complex_abs[i] = m_array[i].complex_num_absolute_val();
-        std::cout << complex_abs[i] << std::endl;
-    }
     for(int i = 0; i < m_length-1 ; i++)
     {
         for(int j = 0; j < m_length-i-1; j++)
         {
-            if(complex_abs[j] > complex_abs[j+1])
+            if(m_array[j] > m_array[j+1])
             {
                 std::cout << "before : " << m_array[j].toString() << "," << m_array[j+1].toString() << std::endl;
-                swapNumbers(&complex_abs[j], &complex_abs[j+1]);
                 swapComplexNum(&m_array[j],&m_array[j+1]);
                 std::cout << "after : " << m_array[j].toString() << "," << m_array[j+1].toString() << std::endl;
             }
@@ -139,11 +132,36 @@ void ComplexDB::bubbleSort()
 
 void ComplexDB::insertionSort()
 {
-
-
+    complexNum<int> key;
+    for(int i = 1; i < m_length; i++)
+    {
+        key = m_array[i];
+        int j = i-1;
+        while(j >= 0 && m_array[j] > key)
+        {
+            m_array[j+1] = m_array[j];
+            j--;
+        }
+        m_array[j+1] = key;
+    }
+    std::cout << this->toString() << std::endl;
 }
 
 void ComplexDB::selectionSort()
 {
+    int i,j,min_index;
 
+    for(i = 0; i < m_length-1; i++)
+    {
+        min_index = i;
+        for(j = i+1; j < m_length; j++)
+        {
+            if(m_array[j] < m_array[min_index])
+            {
+                min_index = j;
+                swapComplexNum(&m_array[min_index], &m_array[i]);
+            }
+        }        
+    }
+    std::cout << this->toString() << std::endl;
 }

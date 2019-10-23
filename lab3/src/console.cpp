@@ -90,11 +90,11 @@ void Console::complex_db_oprations()
 
         else if (option == OPTIONS::SORT_DB_INSERTION_SORT)
         {
-
+            m_complex_db->insertionSort();
         }
         else if (option == OPTIONS::SORT_DB_SELECTION_SORT)
         {
-
+            m_complex_db->selectionSort();
         }
 
         else if (option == OPTIONS::EXIT)

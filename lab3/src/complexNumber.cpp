@@ -74,6 +74,18 @@ bool complexNum<T>::operator==(complexNum<T>& rhs_complex_num)
 }
 
 template <class T>
+bool complexNum<T>::operator>(complexNum<T>& rhs_complex_num)
+{
+    return (this->complex_num_absolute_val() > rhs_complex_num.complex_num_absolute_val());
+}
+
+template <class T>
+bool complexNum<T>::operator<(complexNum<T>& rhs_complex_num)
+{
+    return (this->complex_num_absolute_val() < rhs_complex_num.complex_num_absolute_val());
+}
+
+template <class T>
 std::string complexNum<T>::toString()
 {
     std::string complex_string = "";

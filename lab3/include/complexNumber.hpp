@@ -78,13 +78,30 @@ public:
     complexNum& operator-=(complexNum& rhs_complex_num);
     
     /**
-     * @brief 
+     * @brief overloaded operator ==
      * 
      * @param rhs_complex_num 
      * @return true 
      * @return false 
      */
     bool operator==(complexNum& rhs_complex_num);
+
+    /**
+     * @brief overloaded operator >
+     * 
+     * @param rhs_complex_num 
+     * @return true 
+     * @return false 
+     */
+    bool operator>(complexNum<T>& rhs_complex_num);
+
+    /** @brief overloaded operator <
+     * 
+     * @param rhs_complex_num 
+     * @return true 
+     * @return false 
+     */
+    bool operator<(complexNum<T>& rhs_complex_num);
 
     /**
      * @brief returns complex number as string
