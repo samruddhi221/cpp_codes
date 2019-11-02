@@ -15,7 +15,7 @@ void Console::printMenu()
     std::cout << "1: Insert a stock" << std::endl;
     std::cout << "2: Delete a stock" << std::endl;
     std::cout << "3: Display stocks in the database" << std::endl;
-    // std::cout << "4: Save database to a file" << std::endl;
+    std::cout << "4: find middle stock" << std::endl;
     std::cout << "9: Exit" << std::endl;
 }
 
@@ -87,10 +87,25 @@ void Console::process_commands()
             m_stock_db->display();
         }
 
+        else if (option == OPTIONS::FIND_MIDDLE)
+        {
+            StockNode* stock_node = m_stock_db->findMiddle();
+            if(stock_node==NULL)
+            {
+                std::cout << "DB is empty" << std::endl;
+            }
+            else
+            {
+                std::cout << stock_node->m_stock_obj << std::endl;
+            }
+            
+        }
+
         else if (option == OPTIONS::EXIT)
         {
             m_is_running = false;
         }
+
         else
         {
             this->display("Invalid option");

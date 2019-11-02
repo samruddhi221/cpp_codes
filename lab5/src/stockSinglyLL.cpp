@@ -140,13 +140,23 @@ void StockDBSinglyLL::display()
     
 StockNode* StockDBSinglyLL::findMiddle()
 {
-    StockNode* slow = head;
-    StockNode* fast = head;
-    int i = 1, j = 1;
-    while(fast->m_ptr_next != NULL)
-    {
-        slow = slow->m_ptr_next;
-        fast = slow->m_ptr_next;
+
+    StockNode * temp = m_head;
+    StockNode *slow_ptr = temp;  
+    StockNode *fast_ptr = temp;  
+  
+    if (temp==NULL)  
+    {  
+        return NULL;
     }
-    return slow;
+    else
+    {
+        while (fast_ptr != NULL && fast_ptr->m_ptr_next != NULL)  
+        {  
+            fast_ptr = fast_ptr->m_ptr_next->m_ptr_next;  
+            slow_ptr = slow_ptr->m_ptr_next;  
+        }
+        return slow_ptr;  
+    } 
 }
+

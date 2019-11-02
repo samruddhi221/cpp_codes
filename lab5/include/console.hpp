@@ -18,6 +18,7 @@ private:
             INSERT=1,
             DELETE=2,
             DISPLAY=3,
+            FIND_MIDDLE=4,
             EXIT=9
         };
 
