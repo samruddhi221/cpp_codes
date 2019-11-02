@@ -24,25 +24,30 @@
 #include "stock.hpp"
 #include "stockNode.hpp"
 #include "stockSignlyLL.hpp"
+#include "console.hpp"
 
 int main()
 {
-    Stock A("APPL", 100, 10);
-    Stock B("fb", 90,12);
-    Stock C("google", 80,15);
+    // Stock A("APPL", 100, 10);
+    // Stock B("fb", 90,12);
+    // Stock C("google", 80,15);
 
-    StockNode node;
+    // // StockNode node;
+
+    // StockDBSinglyLL stockDB;
+    // stockDB.display();
+    // stockDB.insertNode(A,1);
+    // stockDB.display();
+    // stockDB.appendNode(B);
+    // stockDB.display();
+    // stockDB.insertNode(C,2);
+    // stockDB.display();
+    // stockDB.deleteNode(2);
+    // stockDB.display();
 
     StockDBSinglyLL stockDB;
-    stockDB.display();
-    stockDB.insertNode(A,1);
-    stockDB.display();
-    stockDB.appendNode(B);
-    stockDB.display();
-    stockDB.insertNode(C,2);
-    stockDB.display();
-    stockDB.deleteNode(2);
-    stockDB.display();
+    Console console(&stockDB);
+    console.process_commands();
 
     return 0;
 }

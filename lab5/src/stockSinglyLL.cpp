@@ -1,12 +1,13 @@
 #include "stockSignlyLL.hpp"
 
-StockDBSinglyLL::StockDBSinglyLL()
+StockDBSinglyLL::StockDBSinglyLL():m_head(NULL), m_length(1)
 {
-    head = NULL;
 }
 
 StockDBSinglyLL::~StockDBSinglyLL()
-{}
+{
+
+}
 
 void StockDBSinglyLL::insertNode(Stock stock, int position)
 {   
@@ -14,27 +15,34 @@ void StockDBSinglyLL::insertNode(Stock stock, int position)
     new_node->m_stock_obj = stock;
     if(position == 1)                   //insert at the start of the linked list
     {
-        if(head == NULL)                 //check if the Linked list is empty
+        if(m_head == NULL)                 //check if the Linked list is empty
         {
 
             new_node->m_ptr_next = NULL;
-            head = new_node;            //make the current node a head
+            m_head = new_node;            //make the current node a head
         }
         else
         {
-            new_node->m_ptr_next = head;
-            head = new_node;
+            new_node->m_ptr_next = m_head;
+            m_head = new_node;
         }
+        m_length++;
     }
     else                                //insert at the given node
     {
-        StockNode* temp = head;
+        if(position > m_length)
+        {
+            std::cout << "position out of bounds of the database length" << std::endl;
+            return;
+        }
+        StockNode* temp = m_head;
         for(int i = 1; i < position-1; i++) //traverse to the given position-1
         {
             temp = temp->m_ptr_next;       
         }
         new_node->m_ptr_next = temp->m_ptr_next; //assign next nodes pointer to the given position's next pointer
-        temp->m_ptr_next = new_node;             //update the pointer of previous node
+        temp->m_ptr_next = new_node;
+        m_length++;             //update the pointer of previous node
     }
 }
 
@@ -44,14 +52,14 @@ void StockDBSinglyLL::appendNode(Stock stock)
     StockNode* new_node = new StockNode();
     new_node->m_stock_obj = stock;
 
-    if(head == NULL)                 //check if the Linked list is empty
+    if(m_head == NULL)                 //check if the Linked list is empty
     {
         new_node->m_ptr_next = NULL;
-        head = new_node;            //make the current node a head
+        m_head = new_node;            //make the current node a head
     }
     else
     {
-        StockNode* temp = head;
+        StockNode* temp = m_head;
         while(temp->m_ptr_next != NULL)
         {
             temp = temp->m_ptr_next;
@@ -62,7 +70,7 @@ void StockDBSinglyLL::appendNode(Stock stock)
 
 void StockDBSinglyLL::deleteNode(int position)
 {
-    if(head == NULL)
+    if(m_head == NULL)
     {
         std::cout << "Linked List is already empty." << std::endl;
     }
@@ -71,13 +79,13 @@ void StockDBSinglyLL::deleteNode(int position)
         if(position == 1)
         {
             //deleting first node
-            StockNode* temp = head->m_ptr_next;
-            delete head;
-            head = temp;                        //make second node a head
+            StockNode* temp = m_head->m_ptr_next;
+            delete m_head;
+            m_head = temp;                        //make second node a head
         }
         else
         {
-            StockNode* temp = head;
+            StockNode* temp = m_head;
             StockNode* prev_ptr = NULL;
             StockNode* current_ptr = NULL;
             for(int i = 1; i < position-1; i++)
@@ -91,26 +99,39 @@ void StockDBSinglyLL::deleteNode(int position)
             delete current_ptr;           
 
         }
+        m_length--;
     }
 }
 
 void StockDBSinglyLL::display()
 {
-    if(head == NULL)
+    if(m_head == NULL)
     {
         std::cout << "empty linkedlist" << std::endl;
     }
     else
     {
-        StockNode* temp = head;
+        std::cout << "---------------------------------------------------------------------------------------------------------------------------" << std::endl;
+        StockNode* temp = m_head;
         int i = 1;
         while(temp != NULL)
         {
-            std::cout << i << "th node is:" <<std::endl;
-            std::cout << temp->m_stock_obj << std::endl;
+            // std::cout << i << "th node is:" <<std::endl;
+            std::cout  << temp->m_stock_obj;
             i++;
+            if(i%4==0)
+            {
+                std::cout<<std::endl;
+            }
+
             temp = temp->m_ptr_next;
+            if(temp!=NULL)
+            {
+                std::cout << "->";
+            }
         }
+        std::cout << std::endl;
+        std::cout << "---------------------------------------------------------------------------------------------------------------------------" << std::endl;
         
     }
     

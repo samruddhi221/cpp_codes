@@ -7,8 +7,8 @@
 class StockDBSinglyLL
 {
 private:
-    StockNode* head;
-
+    StockNode* m_head;
+    int m_length;
 public:
     /**
      * @brief Construct a new Stock D B object
