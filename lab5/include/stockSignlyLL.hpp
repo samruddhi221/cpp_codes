@@ -49,6 +49,8 @@ public:
      * 
      */
     void display();
-};
+
+    StockNode* findMiddle();
+    };
 
 #endif

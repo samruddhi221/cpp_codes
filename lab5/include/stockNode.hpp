@@ -8,7 +8,6 @@ class StockNode
 public:
     Stock m_stock_obj;
     StockNode* m_ptr_next;
-    StockNode* m_ptr_prev;
 
     /**
      * @brief Construct a new Stock Node object: Default constructor
