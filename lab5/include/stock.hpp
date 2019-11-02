@@ -45,6 +45,13 @@ public:
  */
     friend std::ostream& operator << (std::ostream& os, const Stock& obj);
 
+/**
+ * @brief overload == operator
+ * 
+ * @param stock_obj 
+ * @return true 
+ * @return false 
+ */
     bool operator==(const Stock& stock_obj);
 };
 
