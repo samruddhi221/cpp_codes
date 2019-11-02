@@ -19,9 +19,11 @@ Stock::~Stock()
 
 std::ostream& operator << (std::ostream& os, const Stock& obj)
 {
-    os << "stock name: " << obj.m_stock_name << "\n";
-    os << "stock price: " << obj.m_stock_price << "\n";
-    os << "stock count: " << obj.m_stock_count << "\n";
+    os << "(";
+    os << "stock name: " << obj.m_stock_name << " ";
+    os << "stock price: " << obj.m_stock_price << " ";
+    os << "stock count: " << obj.m_stock_count << " ";
+    os << ")";
 } 
 
 bool Stock::operator== (const Stock& stock_obj)

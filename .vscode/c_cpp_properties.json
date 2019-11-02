@@ -8,6 +8,7 @@
                 "${workspaceFolder}/lab2/include",
                 "${workspaceFolder}/lab3/include",
                 "${workspaceFolder}/lab4/include",
+                "${workspaceFolder}/lab5/include",
                 "/usr/include/c++/5/profile"
             ],
             "defines": [],
