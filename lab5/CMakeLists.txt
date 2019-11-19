@@ -18,7 +18,7 @@ set(SOURCES src/main.cpp
             src/stock.cpp
             src/stockNode.cpp
             src/stockSinglyLL.cpp
-            src/console.cpp
+            src/consoleLL.cpp
             )
 
 

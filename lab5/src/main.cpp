@@ -24,7 +24,7 @@
 #include "stock.hpp"
 #include "stockNode.hpp"
 #include "stockSignlyLL.hpp"
-#include "console.hpp"
+#include "consoleLL.hpp"
 
 int main()
 {
